@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3000; 
-//const ip = '10.10.0.172';   
+const ip = '10.10.3.147';   
 
 // Middleware für das Parsen von JSON-Daten
 app.use(bodyParser.json());
@@ -28,15 +28,14 @@ app.get('/movement', (req, res) => {
 
 
 // local
+/*
 app.listen(port, () => {
     console.log(`Server läuft auf http://localhost:${port}/befehl`);
 });
 
-
-// online
-/*
-app.listen(port, ip, () => {
-    console.log(`Server läuft auf http://${ip}:${port}/befehl`);
-});
-
 */
+
+const server = app.listen(port, '0.0.0.0', () => {
+    const address = server.address();
+    console.log(`Server läuft auf http://${address.address}:${address.port}/befehl`);
+});
