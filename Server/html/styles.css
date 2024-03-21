@@ -1,0 +1,119 @@
+/* Allgemeine Stile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header-Stile */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 50px; /* Passen Sie die Höhe je nach Größe des Logos an */
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Hero-Bereich-Stile */
+  .hero {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .hero img {
+    max-width: 100%;
+  }
+  
+  /* Funktionen-Stile */
+  .features {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .feature {
+    width: 30%; /* Passen Sie die Breite je nach Anzahl der Funktionen an */
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  .feature h2 {
+    margin-top: 0;
+  }
+  
+  /* CTA-Stile */
+  .cta {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Testimonials-Stile */
+  .testimonials {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Footer-Stile */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer nav ul li {
+    margin: 0 10px;
+  }
+  
+  footer .social-links {
+    margin-top: 10px;
+  }
+  
+  /* Responsives Design */
+  @media (max-width: 768px) {
+    .features .feature {
+      width: 45%; /* Passen Sie die Breite für kleinere Bildschirme an */
+    }
+  }
+  
