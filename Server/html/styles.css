@@ -14,6 +14,10 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+
+  .navbar-brand{
+    text-align: left;
+  }
   
   .logo img {
     height: 50px; /* Passen Sie die Höhe je nach Größe des Logos an */
@@ -43,6 +47,7 @@ body {
   .hero {
     text-align: center;
     margin-top: 20px;
+    
   }
   
   .hero img {
@@ -58,7 +63,7 @@ body {
   }
   
   .feature {
-    width: 30%; /* Passen Sie die Breite je nach Anzahl der Funktionen an */
+    width: 100%;
     margin-bottom: 20px;
     padding: 20px;
     background-color: #f9f9f9;
