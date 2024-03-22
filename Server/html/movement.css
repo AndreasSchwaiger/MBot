@@ -1,0 +1,87 @@
+
+    /* Stilisierung ist optional */
+    /*
+    .clickable-area {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 100px;
+        font-size: 16px;
+    }
+    */
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-brand {
+        text-align: left;
+    }
+    
+    .logo img {
+        height: 50px; /* Passen Sie die Höhe je nach Größe des Logos an */
+    }
+    
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .right, .left{
+        background-color: rgb(74, 171, 223);
+    }
+    .forward, .backward{
+        background-color: rgb(86, 236, 146);
+    }
+
+    .right{
+        grid-area: r;
+    }
+    .left{
+        grid-area: l;
+    }
+    .forward{
+        grid-area: f;
+    }
+    .backward{
+        grid-area: b;
+    }
+
+    .grid-container {
+            display: grid;
+
+
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+
+            grid-template-areas:
+            '. f .'
+            'l . r'
+            '. b .';
+            
+
+            grid-gap: 1px;
+            height: 100vh;
+        }

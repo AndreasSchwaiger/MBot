@@ -4,8 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="movement.css">
 </head>
 <body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="homepage.html">
+          <img src="icon.png"  alt="Kleines Logo"> 
+          Mbot 2
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#about">Über uns</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Joystick.html">Joystick Steuerung</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="movement.html">Keyboard Steuerung</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+<div  style="margin-top: 100px">
+    <p id="">The last allowed Input was: </p>
+    <p id="last_input">null</p>
+</div>
 
 
 <div class="grid-container">
@@ -20,123 +54,8 @@
 </html> 
 
 <style>
-    /* Stilisierung ist optional */
-    /*
-    .clickable-area {
-        width: 100px;
-        height: 100px;
-        display: inline-block;
-        margin: 10px;
-        cursor: pointer;
-        text-align: center;
-        line-height: 100px;
-        font-size: 16px;
-    }
-    */
 
-
-    .right, .left{
-        background-color: rgb(74, 171, 223);
-    }
-    .forward, .backward{
-        background-color: rgb(86, 236, 146);
-    }
-
-    .right{
-        grid-area: r;
-    }
-    .left{
-        grid-area: l;
-    }
-    .forward{
-        grid-area: f;
-    }
-    .backward{
-        grid-area: b;
-    }
-
-    .grid-container {
-            display: grid;
-
-
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-
-            grid-template-areas:
-            '. f .'
-            'l . r'
-            '. b .';
-            
-
-            grid-gap: 1px;
-            height: 100vh;
-        }
 </style>
 
 
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Elemente abrufen
-        const leftArea = document.querySelector('.left');
-        const rightArea = document.querySelector('.right');
-        const forwardArea = document.querySelector('.forward');
-        const backwardArea = document.querySelector('.backward');
-
-
-        
-          // Funktion, die bei 'mouseover' ausgelöst wird
-          function handleMouseOver() {
-                console.log('Mouse Over!');
-                // Füge hier den Code hinzu, der bei jedem 'mouseover' ausgeführt werden soll
-            }
-
-            // Funktion, die bei 'mouseout' ausgelöst wird
-            function handleMouseOut() {
-                console.log('Mouse Out!');
-                // Füge hier den Code hinzu, der bei jedem 'mouseout' ausgeführt werden soll
-            }
-
-            // 'mouseover'-Event-Listener für jeden Bereich
-            leftArea.addEventListener('mouseover', () => {
-                console.log("left");
-                handleMouseOver();
-            });
-
-            rightArea.addEventListener('mouseover', () => {
-                console.log("right");
-                handleMouseOver();
-            });
-
-            forwardArea.addEventListener('mouseover', () => {
-                console.log("forward");
-                handleMouseOver();
-            });
-
-            backwardArea.addEventListener('mouseover', () => {
-                console.log("backward");
-                handleMouseOver();
-            });
-
-
-            // 'mouseout'-Event-Listener für jeden Bereich
-            leftArea.addEventListener('mouseout', () => {
-                handleMouseOut();
-            });
-
-            rightArea.addEventListener('mouseout', () => {
-                handleMouseOut();
-            });
-
-            forwardArea.addEventListener('mouseout', () => {
-                handleMouseOut();
-            });
-
-            backwardArea.addEventListener('mouseout', () => {
-                handleMouseOut();
-            });
-
-            
-    });
-</script>
+<script src="movement.js"></script>
