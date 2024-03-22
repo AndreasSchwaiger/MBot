@@ -7,6 +7,13 @@ const port = 3000;
 const ip = '10.10.3.147';   
 
 
+
+// Middleware für das Parsen von JSON-Daten
+app.use(bodyParser.json());
+
+// Statische Dateien wie CSS und JS bereitstellen
+app.use(express.static('public'));
+
 // Middleware für das Parsen von JSON-Daten
 app.use(bodyParser.json());
 
@@ -22,11 +29,25 @@ app.post('/befehl', (req, res) => {
 });
 
 
-app.get('/movement', (req, res) => {
+app.get('/movement.html', (req, res) => {
 
-    res.sendFile(process.cwd()+"/html/movement.html");
+    res.sendFile(process.cwd()+"/public/html/movement.html");
     
 });
+
+app.get('/homepage.html', (req, res) => {
+
+    res.sendFile(process.cwd()+"/public/html/homepage.html");
+    
+});
+
+app.get('/joystick.html', (req, res) => {
+
+    res.sendFile(process.cwd()+"/public/html/Joystick.html");
+    
+});
+
+
 
 // local
 /*
