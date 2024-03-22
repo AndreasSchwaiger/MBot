@@ -106,7 +106,7 @@
     <canvas id="canvas" name="game"></canvas>
 
     <script>
-        var connection = new WebSocket('ws://' + "192.168.4.1" + ':81/', ['arduino']);
+        /*var connection = new WebSocket('ws://' + "192.168.4.1" + ':81/', ['arduino']);
         connection.onopen = function () {
             connection.send('Connect ' + new Date());
         };
@@ -116,13 +116,13 @@
         };
         connection.onmessage = function (e) {
             console.log('Server: ', e.data);
-        };
+        };*/
 
         function send(x,y,speed,angle){
             var data = {"x":x,"y":y,"speed":speed,"angle":angle};
             data = JSON.stringify(data);
             console.log(data);
-            connection.send(data);
+            //connection.send(data);
         }
 
 
@@ -190,8 +190,11 @@
         let paint = false;
 
         function getPosition(event) {
+
             var mouse_x = event.clientX || event.touches[0].clientX;
             var mouse_y = event.clientY || event.touches[0].clientY;
+            
+
             coord.x = mouse_x - canvas.offsetLeft;
             coord.y = mouse_y - canvas.offsetTop;
         }
@@ -226,22 +229,19 @@
             document.getElementById("angle").innerText = 0;
 
         }
-
         function Draw(event) {
-
             if (paint) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 background();
-                var angle_in_degrees,x, y, speed;
+                var angle_in_degrees, x, y, speed;
                 var angle = Math.atan2((coord.y - y_orig), (coord.x - x_orig));
 
                 if (Math.sign(angle) == -1) {
                     angle_in_degrees = Math.round(-angle * 180 / Math.PI);
                 }
                 else {
-                    angle_in_degrees =Math.round( 360 - angle * 180 / Math.PI);
+                    angle_in_degrees = Math.round(360 - angle * 180 / Math.PI);
                 }
-
 
                 if (is_it_in_the_circle()) {
                     joystick(coord.x, coord.y);
@@ -254,23 +254,26 @@
                     joystick(x, y);
                 }
 
-            
-                getPosition(event);
+                if (event) {
+                    getPosition(event);
+                }
 
-                var speed =  Math.round(100 * Math.sqrt(Math.pow(x - x_orig, 2) + Math.pow(y - y_orig, 2)) / radius);
+                var speed = Math.round(100 * Math.sqrt(Math.pow(x - x_orig, 2) + Math.pow(y - y_orig, 2)) / radius);
 
                 var x_relative = Math.round(x - x_orig);
                 var y_relative = Math.round(y - y_orig);
-                
 
-                document.getElementById("x_coordinate").innerText =  x_relative;
-                document.getElementById("y_coordinate").innerText =y_relative ;
+                document.getElementById("x_coordinate").innerText = x_relative;
+                document.getElementById("y_coordinate").innerText = y_relative;
                 document.getElementById("speed").innerText = speed;
                 document.getElementById("angle").innerText = angle_in_degrees;
 
-                send( x_relative,y_relative,speed,angle_in_degrees);
+                send(x_relative, y_relative, speed, angle_in_degrees);
             }
-        } 
+        }
+
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html><br>
