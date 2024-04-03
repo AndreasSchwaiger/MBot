@@ -7,7 +7,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Eigenes CSS -->
- <link rel="stylesheet" href="styles2.css"> 
+ <link rel="stylesheet" href="../css/einstellungen.css"> 
 </head>
 <body>
 
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#about">Über uns</a>
+              <a class="nav-link" href="../html/einstellung.html">Über uns</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../html/Joystick.html">Joystick Steuerung</a>
@@ -63,7 +63,9 @@
                   <label for="speed">Geschwindigkeit:</label>
                   <input type="range" class="form-control-range" id="speed" name="speed" min="0" max="100" step="1">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Speichern</button>
+                <button type="button" onclick="saveData()" class="btn btn-primary btn-block">Speichern</button>
+                <button type="button" onclick="resetData()" class="btn btn-primary btn-block">Reset</button>
+                <p id="displayData"></p>
               </form>
             </div>
           </div>
@@ -78,7 +80,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- Eigene JavaScript-Datei -->
-  <script src="settings.js"></script>
+  <script src="../js/temporarydatastorage.js"></script>
 
 </body>
 </html>
