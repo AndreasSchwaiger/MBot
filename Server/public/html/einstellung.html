@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mbot 2 - Einstellungen</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Eigenes CSS -->
+ <link rel="stylesheet" href="styles2.css"> 
+</head>
+<body>
+
+  <!-- Bootstrap-Navigationsleiste -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../html/homepage.html">
+          <img src="../html/icon.png"  alt="Kleines Logo"> 
+          Mbot 2
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#about">Über uns</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../html/Joystick.html">Joystick Steuerung</a>
+            </li>            
+            <li class="nav-item">
+              <a class="nav-link" href="../html/movement.html">Keyboard Steuerung</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+<br>
+<br>
+<br>
+<br>
+  <!-- Hauptinhalt -->
+  <section class="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title text-center mb-4">Mbot 2 Einstellungen</h2>
+              <form id="settingsForm">
+                <div class="form-group">
+                  <label for="color">Farbe:</label>
+                  <input type="color" class="form-control" id="color" name="color">
+                </div>
+                <div class="form-group">
+                  <label for="volume">Lautstärke:</label>
+                  <input type="range" class="form-control-range" id="volume" name="volume" min="0" max="100" step="1">
+                </div>
+                <div class="form-group">
+                  <label for="speed">Geschwindigkeit:</label>
+                  <input type="range" class="form-control-range" id="speed" name="speed" min="0" max="100" step="1">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Speichern</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JavaScript (erfordert jQuery) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Eigene JavaScript-Datei -->
+  <script src="settings.js"></script>
+
+</body>
+</html>
