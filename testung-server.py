@@ -12,6 +12,8 @@ cyberpi.led.on(0, 0,255) #Lights up all the LEDs
 cyberpi.network.config_sta("htljoh-public", "joh12345")
  
 while True:
+    
+    
 #    b = cyberpi.wifi.is_connect()
     b = cyberpi.network.is_connect()
     if b == False:
@@ -69,10 +71,21 @@ def execute_command(command):
     # Implement logic to execute the command on the mBot 2
     if command == 'forward':
         cyberpi.console.println('Moving forward')
-        move_forward(1, 25)
+        cyberpi.mbot2.drive_power(20, -(20)) 
     elif command == 'backward':
-        cyberpi.console.println('Moving forward')
-        move_forward(1, -25)
+        cyberpi.console.println('Moving backward')
+        cyberpi.mbot2.drive_power(-(20), 20) 
+    elif command == 'right':
+        cyberpi.console.println('Moving right')
+        cyberpi.mbot2.drive_power(20, -5) 
+        cyberpi.led.on(255,0,0,id=4)
+    elif command == 'left':
+        cyberpi.console.println('Moving left')
+        cyberpi.mbot2.drive_power(5, -20)
+        cyberpi.led.on(255,0,0,id=2)
+        
+    elif command =='stop':
+        move_forward(1, 0)
     else:
         print('Unsupported command:', command)
  
