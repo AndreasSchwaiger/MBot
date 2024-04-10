@@ -4,6 +4,10 @@ function saveData() {
     var volume = document.getElementById("volume").value;
     var speed = document.getElementById("speed").value;
     
+    sendValueCommand("color", color)
+    sendValueCommand("volume", volume)
+    sendValueCommand("speed", speed)
+
     localStorage.setItem("color", color);
     localStorage.setItem("volume", volume);
     localStorage.setItem("speed", speed);
@@ -11,6 +15,29 @@ function saveData() {
     displaySavedData();
 }
 
+const sendValueCommand = async (nameData, valueData) => {
+    try {
+        const response = await fetch('http://10.10.3.147:3000/parameters', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: nameData,
+                value: valueData
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.text();
+        console.log(data); // Log response from server
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
 // Function to display saved data
 function displaySavedData() {
     var color = localStorage.getItem("color");

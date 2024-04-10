@@ -1,21 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    //WASD Steuerung
-    document.addEventListener('keydown', function(event) {
-        if ((event.key == 'w' )) {
-            console.log(event.key + "up");
-            document.getElementById("last_input").innerText =  event.key;
-        } else if ((event.key == 'a' )) {
-            console.log(event.key + "left");
-            document.getElementById("last_input").innerText =  event.key;
-        } else if ((event.key == 'd' )) {
-            console.log(event.key + "right");
-            document.getElementById("last_input").innerText =  event.key;
-        } else if ((event.key == 's' )) {
-            console.log(event.key + "down");
-            document.getElementById("last_input").innerText =  event.key;
-        } else {
+    const sendCommand = async (command) => {
+        try {
+            const response = await fetch('http://10.10.3.147:3000/befehl', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ command })
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.text();
+            console.log(data); // Log response from server
+        } catch (error) {
+            console.error('Error:', error);
         }
+    };
+    //WASD Steuerung    let currentAction = null;
+ 
+    // Funktion zur Ausführung der Aktion basierend auf der gedrückten Taste
+    function performAction(action) {
+        // Aktion ausführen
+        console.log(action);
+        sendCommand(action)
+        document.getElementById("last_input").innerText = action;
+    }
+ 
+    // Eventlistener für Keydown
+    document.addEventListener('keydown', function(event) {
+        if (event.repeat) return; // Ignoriere wiederholte Tastenanschläge
+ 
+        // Aktion basierend auf der gedrückten Taste ausführen
+        if (event.key == 'w') {
+            performAction('forward'); // Einmalig senden
+        } else if (event.key == 'a') {
+            performAction('left');
+        } else if (event.key == 'd') {
+            performAction('right');
+        } else if (event.key == 's') {
+            performAction('backward');
+        }
+    });
+ 
+    // Eventlistener für Keyup
+    document.addEventListener('keyup', function(event) {
+        // 'Stop' Aktion senden, wenn eine Taste losgelassen wird
+        performAction('stop');
     });
 
 
