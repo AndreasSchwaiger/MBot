@@ -7,7 +7,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- Eigenes CSS -->
- <link rel="stylesheet" href="../css/einstellungen.css"> 
+  <link rel="stylesheet" href="../css/einstellungen.css"> 
 </head>
 <body>
 
@@ -37,11 +37,11 @@
         </div>
       </div>
     </nav>
-</header>
-<br>
-<br>
-<br>
-<br>
+  </header>
+  <br>
+  <br>
+  <br>
+  <br>
   <!-- Hauptinhalt -->
   <section class="main-content">
     <div class="container">
@@ -63,6 +63,18 @@
                   <label for="speed">Geschwindigkeit:</label>
                   <input type="range" class="form-control-range" id="speed" name="speed" min="0" max="100" step="1">
                 </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="lineFollowing" name="lineFollowing" value="1" onclick="checkAutonomousDriving()">
+                  <label class="form-check-label" for="lineFollowing">Line Following</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="autonomousDriving" name="autonomousDriving" value="2" onclick="checkLineFollowing()">
+                  <label class="form-check-label" for="autonomousDriving">Autonomes Fahren</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="suicideProtection" name="suicideProtection" value="3">
+                  <label class="form-check-label" for="suicideProtection">Suizidprävention</label>
+                </div>
                 <button type="button" onclick="saveData()" class="btn btn-primary btn-block">Speichern</button>
                 <button type="button" onclick="resetData()" class="btn btn-primary btn-block">Reset</button>
                 <p id="displayData"></p>
@@ -80,6 +92,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- Eigene JavaScript-Datei -->
+  <script src="../js/settings.js"></script>
   <script src="../js/temporarydatastorage.js"></script>
 
 </body>
